@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    int courseCount;
+    double totalCredits = 0;
+    double totalPoints = 0;
+
+    cout << "How many courses do you want to enter? ";
+    cin >> courseCount;
+
+    if (courseCount <= 0) {
+        cout << "Please enter a number greater than 0.\n";
+        return 1;
+    }
+
+    for (int i = 1; i <= courseCount; i++) {
+        string courseName;
+        double credits, gradePoint;
+
+        cout << "\nEnter course name: ";
+        cin >> ws;
+        getline(cin, courseName);
+
+        cout << "Enter credits: ";
+        cin >> credits;
+
+        cout << "Enter grade point: ";
+        cin >> gradePoint;
+
+        double qualityPoints = credits * gradePoint;
+
+        totalCredits += credits;
+        totalPoints += qualityPoints;
+
+        cout << "Quality points: " << qualityPoints << "\n";
+    }
+
+    double cgpa = totalPoints / totalCredits;
+
+    cout << fixed << setprecision(2);
+    cout << "\nTotal credits: " << totalCredits << "\n";
+    cout << "Total quality points: " << totalPoints << "\n";
+    cout << "CGPA: " << cgpa << "\n";
+
+    return 0;
+}
